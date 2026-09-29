@@ -22,7 +22,7 @@ export function NetworkMenu() {
         className="h-10 rounded-full border border-line px-3 text-sm hover:bg-sunken"
         aria-expanded={open}
       >
-        {current.name.replace("Robinhood Chain", "RH Chain")}
+        {current.id === 46630 ? "Testnet" : "Mainnet"}
       </button>
       {open ? (
         <div className="absolute right-0 z-30 mt-2 w-64 rounded-2xl border border-line bg-elev p-2 shadow-xl">

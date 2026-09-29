@@ -16,6 +16,7 @@ type NetworkResponse = {
 export function NetworkPulse() {
   const [data, setData] = useState<NetworkResponse | null>(null);
   const [failed, setFailed] = useState(false);
+  const pending = !data && !failed;
 
   useEffect(() => {
     let active = true;
@@ -37,13 +38,13 @@ export function NetworkPulse() {
       <Card
         label="Network"
         value={data?.chainName ?? (failed ? "Unreachable" : "Reading")}
-        badge={data?.status === "live" ? "Live" : "Unavailable"}
+        badge={pending ? "Reading" : data?.status === "live" ? "Live" : "Unavailable"}
         detail={data ? `Chain ID ${data.chainId}` : "Robinhood Chain"}
       />
       <Card
         label="Latest block"
         value={data?.blockNumber ? formatBlock(data.blockNumber) : "—"}
-        badge={data?.status === "live" ? "Live" : "Unavailable"}
+        badge={pending ? "Reading" : data?.status === "live" ? "Live" : "Unavailable"}
         detail={data?.rpcHost ? `Source ${data.rpcHost}` : "Public RPC"}
       />
       <Card label="Token price" value="—" badge="Unavailable" detail="$VIRE has no price feed" />
@@ -60,7 +61,7 @@ function Card({
 }: {
   label: string;
   value: string;
-  badge: "Live" | "Unavailable";
+  badge: "Live" | "Unavailable" | "Reading";
   detail: string;
 }) {
   return (

@@ -7,6 +7,7 @@ const tones = {
   Estimated: "text-muted bg-sunken",
   Historical: "text-muted bg-sunken",
   Unavailable: "text-muted bg-sunken",
+  Reading: "text-muted bg-sunken",
   Roadmap: "text-brass bg-brass-soft",
   Confirmed: "text-positive bg-[color-mix(in_oklab,var(--positive)_14%,transparent)]",
   Pending: "text-warning bg-[color-mix(in_oklab,var(--warning)_16%,transparent)]",

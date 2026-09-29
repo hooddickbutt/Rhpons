@@ -57,7 +57,7 @@ export default function HomePage() {
 
       <section className="border-y border-line">
         <div className="mx-auto max-w-6xl px-5 py-4">
-          <div className="flex items-center gap-3 overflow-x-auto text-sm text-muted">
+          <div className="flex items-center gap-3 overflow-x-auto text-sm text-muted [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <StatusPill>Demo</StatusPill>
             {sampleActivity.slice(0, 4).map((item) => (
               <span key={item.id} className="whitespace-nowrap">
