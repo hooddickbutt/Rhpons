@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f3f0e8;
+  --bg-elev: #fffcf8;
+  --bg-sunken: #e7e1d4;
+  --fg: #16181d;
+  --muted: #5c5852;
+  --faint: #8a847a;
+  --line: rgba(22, 24, 29, 0.12);
+  --line-strong: rgba(22, 24, 29, 0.22);
+  --primary: #17191f;
+  --primary-fg: #f6f3ec;
+  --brass: #8d6a3a;
+  --brass-soft: rgba(141, 106, 58, 0.14);
+  --positive: #1d6b4a;
+  --danger: #9d342c;
+  --warning: #8a5a12;
+  --shadow: 0 24px 60px rgba(40, 32, 20, 0.08);
+  --ring: #8d6a3a;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0c0e12;
+  --bg-elev: #15181e;
+  --bg-sunken: #090b0f;
+  --fg: #f3efe6;
+  --muted: #b1aaa0;
+  --faint: #7e786f;
+  --line: rgba(243, 239, 230, 0.12);
+  --line-strong: rgba(243, 239, 230, 0.22);
+  --primary: #f3efe6;
+  --primary-fg: #14161c;
+  --brass: #d4b483;
+  --brass-soft: rgba(212, 180, 131, 0.16);
+  --positive: #8ed4ae;
+  --danger: #f0a8a2;
+  --warning: #e3c07a;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  --ring: #d4b483;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --color-bg: var(--bg);
+  --color-elev: var(--bg-elev);
+  --color-sunken: var(--bg-sunken);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+  --color-brass: var(--brass);
+  --color-brass-soft: var(--brass-soft);
+  --color-positive: var(--positive);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 420px at 10% -10%, var(--brass-soft), transparent 60%),
+    radial-gradient(700px 380px at 100% 0%, rgba(22, 24, 29, 0.04), transparent 55%);
+  z-index: -1;
+}
+
+::selection {
+  background: var(--brass-soft);
+  color: var(--fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.surface {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.surface-flat {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+}
+
+.glass {
+  background: color-mix(in oklab, var(--bg-elev) 82%, transparent);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--line);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.rise-delay {
+  animation-delay: 0.08s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: draw 0.6s ease forwards 0.15s;
+}
+
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-sunken),
+    color-mix(in oklab, var(--bg-elev) 70%, var(--fg) 8%),
+    var(--bg-sunken)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 0.7rem;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise,
+  .skeleton,
+  .draw-check {
+    animation: none;
+  }
+  .draw-check {
+    stroke-dashoffset: 0;
+  }
+}
