@@ -17,7 +17,7 @@ const links = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line">
+    <footer className="ink-surface rounded-none border-x-0 border-b-0">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-[1.3fr_1fr]">
         <div>
           <Wordmark />
@@ -33,7 +33,7 @@ export function SiteFooter() {
         </div>
         <nav className="grid grid-cols-2 gap-2 text-sm" aria-label="Legal">
           {links.map(([label, href]) => (
-            <Link key={href} href={href} className="text-muted hover:text-fg">
+            <Link key={href} href={href} className="text-white/65 hover:text-white">
               {label}
             </Link>
           ))}

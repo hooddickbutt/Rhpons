@@ -19,11 +19,11 @@ export default function OpenGraphImage() {
           padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#d4b483" }}>
+        <div style={{ display: "flex", fontSize: 28, letterSpacing: 8, color: "#e7c98a" }}>
           VIRE
         </div>
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
-          <div style={{ fontSize: 76, lineHeight: 1.02, letterSpacing: -1 }}>
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 920 }}>
+          <div style={{ fontSize: 84, lineHeight: 0.95, letterSpacing: -2 }}>
             Money, built for the onchain world.
           </div>
           <div style={{ marginTop: 28, fontSize: 28, color: "#b1aaa0", lineHeight: 1.4 }}>

@@ -87,9 +87,30 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(900px 420px at 10% -10%, var(--brass-soft), transparent 60%),
-    radial-gradient(700px 380px at 100% 0%, rgba(22, 24, 29, 0.04), transparent 55%);
+    radial-gradient(900px 480px at 0% -10%, rgba(224, 196, 138, 0.22), transparent 55%),
+    radial-gradient(800px 420px at 100% 0%, rgba(18, 20, 26, 0.06), transparent 50%);
   z-index: -1;
+}
+
+.ink-surface {
+  background:
+    radial-gradient(520px 220px at 100% 0%, rgba(231, 201, 138, 0.22), transparent 60%),
+    linear-gradient(180deg, #1b1e26 0%, #101217 100%);
+  color: #f7f1e6;
+  border: 1px solid rgba(231, 201, 138, 0.28);
+  box-shadow: 0 30px 80px rgba(16, 18, 23, 0.2);
+}
+
+.ink-surface :where(.text-muted, .text-faint) {
+  color: rgba(247, 241, 230, 0.68);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(231, 201, 138, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(231, 201, 138, 0.09) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: radial-gradient(ellipse at 75% 30%, black, transparent 72%);
 }
 
 ::selection {
@@ -120,8 +141,8 @@ a {
 .surface {
   background: var(--bg-elev);
   border: 1px solid var(--line);
-  border-radius: 1.4rem;
-  box-shadow: var(--shadow);
+  border-radius: 1.6rem;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .surface-flat {

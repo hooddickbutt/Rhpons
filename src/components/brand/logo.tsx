@@ -2,53 +2,61 @@ import { cn } from "@/lib/cn";
 
 export function Mark({ className, title }: { className?: string; title?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      className={cn("size-8", className)}
+    <span
+      className={cn(
+        "inline-grid size-9 shrink-0 rounded-[30%] bg-[linear-gradient(145deg,#fff8ea,#e7c98a_46%,#8d6232)] p-[1.5px] shadow-[0_10px_24px_rgba(28,20,8,0.22)]",
+        className,
+      )}
       role={title ? "img" : "presentation"}
       aria-label={title}
       aria-hidden={title ? undefined : true}
     >
-      <rect x="1" y="1" width="30" height="30" rx="9" fill="currentColor" />
-      <path
-        d="M9 12.5h9.2M9 16.5h6.2M9 20.5h4"
-        stroke="var(--brass)"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-      />
-      <path
-        d="M18.2 14.2 22.6 16.5 18.2 18.8"
-        fill="none"
-        stroke="var(--bg)"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+      <svg viewBox="0 0 32 32" className="size-full rounded-[28%]" aria-hidden>
+        <rect width="32" height="32" rx="8" fill="#12141A" />
+        <path
+          d="M8.2 9.2 16 23.8 23.8 9.2"
+          fill="none"
+          stroke="#E7C98A"
+          strokeWidth="2.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="23.8" cy="9.2" r="1.55" fill="#F7F1E6" />
+      </svg>
+    </span>
   );
 }
 
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <Mark className="size-8 text-primary" title="Vire" />
-      <span className="serif text-[1.65rem] leading-none tracking-tight">vire</span>
+      <Mark title="Vire" />
+      <span className="serif text-[1.7rem] leading-none tracking-[-0.04em]">Vire</span>
     </span>
   );
 }
 
 export function TokenMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 32 32" className={cn("size-8", className)} aria-hidden>
-      <circle cx="16" cy="16" r="14" fill="var(--brass-soft)" stroke="var(--brass)" />
-      <path
-        d="M11 12.5 16 21l5-8.5"
-        fill="none"
-        stroke="var(--brass)"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <span
+      className={cn(
+        "inline-grid size-9 shrink-0 rounded-full bg-[linear-gradient(145deg,#fff8ea,#e7c98a_46%,#8d6232)] p-[1.5px]",
+        className,
+      )}
+      aria-hidden
+    >
+      <svg viewBox="0 0 32 32" className="size-full">
+        <circle cx="16" cy="16" r="15" fill="#12141A" />
+        <circle cx="16" cy="16" r="11.5" fill="none" stroke="#E7C98A" strokeWidth="1.2" />
+        <path
+          d="M10.5 11.2 16 22.2 21.5 11.2"
+          fill="none"
+          stroke="#E7C98A"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
   );
 }

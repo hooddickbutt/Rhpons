@@ -56,21 +56,23 @@ export function DashboardView() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm text-muted">Home</p>
-          <h1 className="serif text-4xl md:text-5xl">Your payments</h1>
+          <h1 className="serif text-5xl leading-none md:text-6xl">Your payments</h1>
         </div>
         <StatusPill>{isConnected ? "Live" : preview ? "Preview" : "Unavailable"}</StatusPill>
       </div>
 
       {!isConnected && !preview ? (
-        <section className="surface p-8">
-          <h2 className="serif text-3xl">Connect a wallet to see balances</h2>
+        <section className="ink-surface rounded-[1.8rem] p-8 md:p-10">
+          <h2 className="serif text-4xl md:text-5xl">Connect a wallet to see balances</h2>
           <p className="mt-3 max-w-xl text-sm leading-6 text-muted">
             You can also open the interface preview. Sample figures stay labeled and are not your
             funds.
           </p>
           <div className="mt-5 flex gap-2">
-            <Button href="/wallet">Open wallet</Button>
-            <Button href="/docs" variant="secondary">
+            <Button href="/wallet" variant="brass">
+              Open wallet
+            </Button>
+            <Button href="/docs" variant="inverse">
               Read the guide
             </Button>
           </div>

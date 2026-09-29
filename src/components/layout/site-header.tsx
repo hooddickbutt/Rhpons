@@ -19,14 +19,14 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 border-b border-line glass">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-5">
+    <header className="sticky top-0 z-40 border-b border-line glass shadow-[inset_0_-1px_0_rgba(212,180,131,0.55)]">
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between px-4 md:px-5">
         <Link href="/" aria-label="Vire home">
           <Wordmark />
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-muted md:flex" aria-label="Primary">
           {links.map(([label, href]) => (
-            <Link key={href} href={href} className="hover:text-fg">
+            <Link key={href} href={href} className="tracking-wide hover:text-fg">
               {label}
             </Link>
           ))}

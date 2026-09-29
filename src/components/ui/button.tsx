@@ -3,8 +3,12 @@ import { cn } from "@/lib/cn";
 
 const styles = {
   primary:
-    "bg-primary text-primary-fg hover:opacity-90 shadow-[0_10px_30px_rgba(20,22,28,0.12)]",
-  secondary: "bg-elev text-fg border border-line hover:bg-sunken",
+    "bg-primary text-primary-fg shadow-[0_14px_30px_rgba(18,16,12,0.18)] hover:-translate-y-0.5 hover:opacity-95",
+  brass:
+    "bg-[#e7c98a] text-[#1a140c] shadow-[0_14px_34px_rgba(180,140,70,0.35)] hover:-translate-y-0.5 hover:bg-[#f0d7a2]",
+  inverse:
+    "border border-white/30 bg-white/5 text-[#f7f1e6] hover:bg-white/10",
+  secondary: "bg-elev text-fg border border-line hover:-translate-y-0.5 hover:bg-sunken",
   ghost: "bg-transparent text-fg hover:bg-sunken",
   danger: "bg-transparent text-danger border border-line hover:bg-sunken",
 } as const;

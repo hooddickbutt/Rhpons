@@ -48,7 +48,7 @@ export function TokenView({ snapshot }: { snapshot: TokenSnapshot }) {
 
   return (
     <div className="space-y-8">
-      <section className="surface overflow-hidden p-6 md:p-10">
+      <section className="ink-surface overflow-hidden rounded-[1.8rem] p-6 md:p-10">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-sm tracking-[0.18em] text-brass uppercase">The payment network token</p>
@@ -62,16 +62,18 @@ export function TokenView({ snapshot }: { snapshot: TokenSnapshot }) {
               it is not a claim on revenue.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <Button href="/swap">Get VIRE</Button>
-              <Button href="/swap" variant="secondary">
+              <Button href="/swap" variant="brass">
+                Get VIRE
+              </Button>
+              <Button href="/swap" variant="inverse">
                 Swap
               </Button>
               {snapshot.explorerUrl ? (
-                <Button href={snapshot.explorerUrl} variant="secondary">
+                <Button href={snapshot.explorerUrl} variant="inverse">
                   View contract
                 </Button>
               ) : (
-                <Button variant="secondary" disabled>
+                <Button variant="inverse" disabled>
                   View contract
                 </Button>
               )}
